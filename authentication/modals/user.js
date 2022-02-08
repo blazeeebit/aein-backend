@@ -3,7 +3,14 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
-	{
+	{   googleId : {
+            type: String,
+            trim: true
+        },
+        facebookId : {
+            type: String,
+            trim: true
+        },
 		firstname : {
             type: String,
             trim: true,
@@ -40,7 +47,6 @@ const userSchema = new Schema(
         usertype : {
             type: String,
             trim: true,
-            required: 'You must choose a user type when registering'
         },
         paymentMethods : [
             {
