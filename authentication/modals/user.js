@@ -26,7 +26,7 @@ const userSchema = new Schema(
         username : {
             type: String,
             trim: true,
-            required: 'You must choose a valid username',
+            required: 'This username already exists',
             unique: true
         },
         password : {
@@ -42,6 +42,7 @@ const userSchema = new Schema(
         },
         usertype : {
             type: String,
+            default: 'user',
             trim: true,
         },
         paymentMethods : [

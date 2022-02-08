@@ -18,8 +18,8 @@ const Register = async (req, res) => {
       let token = JWT.sign({_id: user._id}, process.env.JWT_SECRET, {
         expiresIn: '60s'
     })
-      var verifyuser = verifyUser(email,token);
-      sendMail(email,'verify account',verifyuser);
+      // var verifyuser = verifyUser(email,token);
+      // sendMail(email,'verify account',verifyuser);
       return res.send('Registration Successful')
     } catch (error) {
       return res.status(400).send('Registration Failed')
