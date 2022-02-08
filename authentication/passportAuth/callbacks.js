@@ -31,25 +31,25 @@ exports.InfoSignedJWT = (user) => {
     return token;
 }           
 
-exports.facebookCallback = (accessToken, refreshToken, profile, done) => {
+// exports.facebookCallback = (accessToken, refreshToken, profile, done) => {
 
-    User.findOne({email: profile.emails[0].value}).then(existingUser => {
-        if(existingUser){
-            done(null, existingUser);
-          }else{
-              new User(
-                  {
-                      facebookId: profile.id,
-                      firstname:profile.name.familyName,
-                      lastname:profile.name.givenName,
-                      email:profile.emails[0].value,
-                      password:profile.id,
-                      username:profile.displayName,
-                      profileImage:profile.photos[0].value,
-                      userType:'user',
-                      verified:true
-                  }
-                  ).save().then(user => done(null, user));
-                }
-              });
-            }
+//     User.findOne({email: profile.emails[0].value}).then(existingUser => {
+//         if(existingUser){
+//             done(null, existingUser);
+//           }else{
+//               new User(
+//                   {
+//                       facebookId: profile.id,
+//                       firstname:profile.name.familyName,
+//                       lastname:profile.name.givenName,
+//                       email:profile.emails[0].value,
+//                       password:profile.id,
+//                       username:profile.displayName,
+//                       profileImage:profile.photos[0].value,
+//                       userType:'user',
+//                       verified:true
+//                   }
+//                   ).save().then(user => done(null, user));
+//                 }
+//               });
+//             }

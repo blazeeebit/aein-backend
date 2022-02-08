@@ -7,10 +7,6 @@ const userSchema = new Schema(
             type: String,
             trim: true
         },
-        facebookId : {
-            type: String,
-            trim: true
-        },
 		firstname : {
             type: String,
             trim: true,

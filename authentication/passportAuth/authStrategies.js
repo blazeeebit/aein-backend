@@ -1,8 +1,8 @@
 const passport = require('passport');
 const User = require('../modals/user');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
-const {googleCallback, facebookCallback} = require('./callbacks');
+// const FacebookStrategy = require('passport-facebook').Strategy;
+const {googleCallback} = require('./callbacks');
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -23,12 +23,12 @@ passport.use(new GoogleStrategy({
   )
  );
 
- passport.use(new FacebookStrategy({
-  clientID: process.env.FACBOOK_CLIENT_ID,
-  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-  callbackURL:`${process.env.URL}auth/facebook/callback/`,
-  profileFields: ["id", "displayName", "name", "gender", "picture.type(large)", "email"]
- },
- facebookCallback
- ))
+//  passport.use(new FacebookStrategy({
+//   clientID: process.env.FACBOOK_CLIENT_ID,
+//   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+//   callbackURL:`${process.env.URL}auth/facebook/callback/`,
+//   profileFields: ["id", "displayName", "name", "gender", "picture.type(large)", "email"]
+//  },
+//  facebookCallback
+//  ))
 

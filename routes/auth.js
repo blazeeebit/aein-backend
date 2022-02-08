@@ -34,13 +34,13 @@ router.get('/login/failed', (req, res) => {
 
 //Faebook auth
 
-router.get('/auth/facebook',  passport.authenticate('facebook', {scope: ['email']}));
+// router.get('/auth/facebook',  passport.authenticate('facebook', {scope: ['email']}));
 
-router.get('/auth/facebook/callback/',  passport.authenticate('facebook', {
-    failureRedirect: '/login/failed'
-}), (req,res) => {
-    res.redirect('http://localhost:3000/login/success');
-});
+// router.get('/auth/facebook/callback/',  passport.authenticate('facebook', {
+//     failureRedirect: '/login/failed'
+// }), (req,res) => {
+//     res.redirect('http://localhost:3000/login/success');
+// });
 
 //Send logged in user back
 
