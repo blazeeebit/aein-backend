@@ -3,7 +3,7 @@ const JWT = require('jsonwebtoken');
 
 const Login = async (req, res) => {
     const {email, password} = req.body;
-    
+
     try{
         let user = await User.findOne({email}).exec();
 
@@ -12,10 +12,10 @@ const Login = async (req, res) => {
         }else{
             user.comparePassword(password, (err, match) => {
                 if(!match || err){
-                    return res.status(400).send("Wrong Password");
+                    return res.status(400).send("Email/Password entered is incorrect! Try again");
                 }else{
                     let token = JWT.sign({_id: user._id}, process.env.JWT_SECRET, {
-                        expiresIn: '1d'
+                        expiresIn: '5d'
                     });
                     res.header('auth-token', token).json({
                         token,

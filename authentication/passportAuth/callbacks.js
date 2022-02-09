@@ -3,7 +3,7 @@ const JWT = require('jsonwebtoken');
 
 exports.googleCallback = (accessToken, refreshToken, profile, done) => {
 
-    User.findOne({email: profile.emails[0].value}).then(existingUser => {
+    User.findOne({googleId: profile.id}).then(existingUser => {
         if(existingUser){
             done(null, existingUser);
           }else{
@@ -26,7 +26,7 @@ exports.googleCallback = (accessToken, refreshToken, profile, done) => {
 
 exports.InfoSignedJWT = (user) => {
     let token = JWT.sign({_id: user._id}, process.env.JWT_SECRET, {
-        expiresIn: '1d'
+        expiresIn: '5d'
     });
     return token;
 }           

@@ -20,7 +20,7 @@ const userSchema = new Schema(
         email : {
             type: String,
             trim: true,
-            required: 'You must provide a valid email',
+            required: 'Email is already associated with another account',
             unique: true
         },
         username : {
